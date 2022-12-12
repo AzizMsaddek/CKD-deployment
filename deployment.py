@@ -77,10 +77,10 @@ def main():
 
     # getting the input data from the user
     age = st.number_input('Age:', min_value=1.0, max_value=130.0, value=1.0)
-    bp = st.number_input('Blood Pressure:', min_value=0.0, max_value=200.0, value=1.0)
-    sg = st.number_input('Specific Gravity:', min_value=1.0, max_value=10, value=1.0)
-    al = st.number_input('Albumin:', min_value=0.0, max_value=100.0, value=1.0)
-    su = st.number_input('Sugar:', min_value=0.0, max_value=100.0, value=1.0)
+    bp = st.number_input('Blood Pressure:', min_value=0.0, value=1.0)
+    sg = st.number_input('Specific Gravity:', min_value=1.0, value=1.0)
+    al = st.number_input('Albumin:', min_value=0.0, value=1.0)
+    su = st.number_input('Sugar:', min_value=0.0, value=1.0)
     rbc = st.selectbox('Red Blood Cells', ['Normal', 'Abnormal'])
     pc = st.selectbox('Pus Cell', ['Normal', 'Abnormal'])
     pcc = st.selectbox('Pus Cell Clumps', ['Present', 'Not Present'])
