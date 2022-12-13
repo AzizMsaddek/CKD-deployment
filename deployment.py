@@ -59,8 +59,7 @@ def prediction(age,bp,sg,al,su,rbc,pc,pcc,ba,bgr,bu,sc,sod,pot,hemo,pcv,wbcc,rbc
     elif ane == 'No':
         ane = 0
 
-    prediction = loaded_model.predict(pd.DataFrame([[age,bp,sg,al,su,rbc,pc,pcc,ba,bgr,bu,sc,sod,pot,hemo,pcv,wbcc,rbcc,htn,dm,cad,appet,pe,ane]],
-                columns=['age','bp','sg','al','su','rbc','pc','pcc','ba','bgr','bu','sc','sod','pot','hemo','pcv','wbcc','rbcc','htn','dm','cad','appet','pe','ane']))
+    prediction = loaded_model.predict(pd.DataFrame([[age,bp,sg,al,su,rbc,pc,pcc,ba,bgr,bu,sc,sod,pot,hemo,pcv,wbcc,rbcc,htn,dm,cad,appet,pe,ane]]))
     print(prediction)
 
     if (prediction[0] == 0):
@@ -81,10 +80,10 @@ def main():
     sg = st.number_input('Specific Gravity:', min_value=1.0, value=1.0)
     al = st.number_input('Albumin:', min_value=0.0, value=1.0)
     su = st.number_input('Sugar:', min_value=0.0, value=1.0)
-    rbc = st.selectbox('Red Blood Cells', ['Normal', 'Abnormal'])
-    pc = st.selectbox('Pus Cell', ['Normal', 'Abnormal'])
-    pcc = st.selectbox('Pus Cell Clumps', ['Present', 'Not Present'])
-    ba = st.selectbox('Bacteria', ['Present', 'Not Present'])
+    rbc = st.radio('Red Blood Cells', ['Normal', 'Abnormal'])
+    pc = st.radio('Pus Cell', ['Normal', 'Abnormal'])
+    pcc = st.radio('Pus Cell Clumps', ['Not Present', 'Present'])
+    ba = st.radio('Bacteria', ['Not Present', 'Present'])
     bgr = st.number_input('Blood Glucose Random:', min_value=0.0, value=1.0)
     bu = st.number_input('Blood Urea:', min_value=0.0, value=1.0)
     sc = st.number_input('Serum Creatinine:', min_value=0.0, value=1.0)
@@ -94,12 +93,12 @@ def main():
     pcv = st.number_input('Packed  Cell Volume:', min_value=0.0, value=1.0)
     wbcc = st.number_input('White Blood Cell Count:', min_value=0.0, value=1.0)
     rbcc = st.number_input('Red Blood Cell Count:', min_value=0.0, value=1.0)
-    htn = st.selectbox('Hypertension', ['Yes', 'No'])
-    dm = st.selectbox('Diabetes Mellitus', ['Yes', 'No'])
-    cad = st.selectbox('Coronary Artery Disease', ['Yes', 'No'])
-    appet = st.selectbox('Appetite', ['Yes', 'No'])
-    pe = st.selectbox('Pedal Edema', ['Yes', 'No'])
-    ane = st.selectbox('Anemia', ['Yes', 'No'])
+    htn = st.radio('Hypertension', ['No', 'Yes'])
+    dm = st.radio('Diabetes Mellitus', ['No', 'Yes'])
+    cad = st.radio('Coronary Artery Disease', ['No', 'Yes'])
+    appet = st.radio('Appetite', ['No', 'Yes'])
+    pe = st.radio('Pedal Edema', ['No', 'Yes'])
+    ane = st.radio('Anemia', ['No', 'Yes'])
 
     diagnosis = ''
     # creating a button for Prediction
